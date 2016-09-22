@@ -1,8 +1,100 @@
 body {
-  padding: 50px;
+  padding: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+
+section {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* ==========================================================================
+Logo
+========================================================================== */
+
+img.logo {
+  height: 50px
+}
+
+/* ==========================================================================
+Banner
+========================================================================== */
+
+#banner {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.3)
+  ), url("../images/banner/banner.jpg");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+  height: 500px;
+  text-align: center;
+  color: #FFF;
+}
+
+  #banner h1 {
+    font-size: 4em;
+    margin-top: 300px;
+    margin-bottom: 20px
+  }
+
+@media only screen and (max-width: 767px) {
+  #banner {
+    background-size: 150px, 150px, auto, cover;
+  }
+
+    #banner .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+      #banner .logo img {
+        width: 50%;
+      }
+
+      #banner .disrupt img {
+        width: 90%;
+      }
+}
+
+/* ==========================================================================
+Products
+========================================================================== */
+
+#products {
+  text-align: center;
+}
+
+  #products h1 {
+    margin-bottom: 50px;
+  }
+
+    #products .image img {
+      max-width:100%;
+      max-height:100%;
+    }
+
+    #products .description p {
+      max-width:100%;
+      max-height:100%;
+    }
+
+/* ==========================================================================
+Footer
+========================================================================== */
+
+.footer {
+  background-color: #2D202A;
+  color: #FFFFFF;
+  padding: 20px 0;
+}
+
+  .footer p {
+    text-align: center;
+    margin: 0;
+  }
