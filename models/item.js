@@ -1,15 +1,18 @@
 "use strict"
 
 class Item {
-  // static create(db, obj) {
-  //   db.run("INSERT INTO students (firstname, lastname, cohort_id) VALUES ($firstname, $lastname, $cohort_id)", {
-  //     $firstname: obj.firstname,
-  //     $lastname: obj.lastname,
-  //     $cohort_id: obj.cohort_id
-  //   }, function(err, data) {
-  //     console.log("Success create new student entry.")
-  //   })
-  // }
+  static create(db, obj, callback) {
+    db.run("INSERT INTO items (category, brand, name, price, stock, image_url) VALUES ($category, $brand, $name, $price, $stock, $image_url)", {
+      $category: obj.category,
+      $brand: obj.brand,
+      $name: obj.name,
+      $price: obj.price,
+      $stock: obj.stock,
+      $image_url: "adidas-superstar.jpg"
+    }, function(err, data) {
+      callback()
+    })
+  }
 
   static read(db, callback) {
     db.all("SELECT * FROM items", function(err, data) {
@@ -17,24 +20,33 @@ class Item {
     })
   }
 
-  // static updateById(db, obj) {
-  //   db.run("UPDATE students SET firstname = $firstname, lastname = $lastname, cohort_id = $cohort_id WHERE student_id = $student_id;", {
-  //     $firstname: obj.firstname,
-  //     $lastname: obj.lastname,
-  //     $cohort_id: obj.cohort_id,
-  //     $student_id: obj.student_id
-  //   }, function(err, data) {
-  //     console.log("Success update student entry.")
-  //   })
-  // }
-  //
-  // static deleteById(db, student_id) {
-  //   db.run("DELETE FROM students WHERE student_id = $student_id;", {
-  //     $student_id: student_id
-  //   }, function(err, data) {
-  //     console.log("Success delete student entry.")
-  //   })
-  // }
+  static readById(db, id, callback) {
+    db.all("SELECT * FROM items WHERE id=" + id, function(err, data) {
+      callback(data)
+    })
+  }
+
+  static updateById(db, obj, callback) {
+    db.run("UPDATE items SET category = $category, brand = $brand, name = $name, price = $price, stock = $stock WHERE id = $id;", {
+      $id: obj.id,
+      $category: obj.category,
+      $brand: obj.brand,
+      $name: obj.name,
+      $price: obj.price,
+      $stock: obj.stock
+    }, function(err, data) {
+      callback()
+    })
+  }
+
+  static deleteById(db, id, callback) {
+    db.run("DELETE FROM items WHERE id = $id;", {
+      $id: id
+    }, function(err, data) {
+      console.log("Success delete student entry.")
+      callback(data)
+    })
+  }
 }
 
 // export default Item

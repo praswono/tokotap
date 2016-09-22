@@ -1,0 +1,40 @@
+<% include ../header.ejs %>
+
+  <!-- Banner -->
+  <section id="banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="inner">
+            <h1>Jangan Lari Dari Kenyataan</h1>
+            <!-- <button type="button" class="btn btn-primary btn-lg">BELI SEPATU MAHAL DULU!</button> -->
+            <a href="#join" class="btn btn-lg"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products">
+    <div class="container">
+      <div class="row">
+        <h1>Pilihan Sepatu Mahal Dan Bocengli</h1>
+
+        <% for (var i = 0; i < data.length; i++) { %>
+           <div class="col-xs-6 col-sm-4 col-md-3">
+             <div class="image">
+               <img src="images/products/<%= data[i].image_url %>">
+             </div>
+             <div class="description">
+               <h3><%= data[i].brand %> <%= data[i].name %></h3>
+               <h4>Rp <%= data[i].price %></h4>
+               <h4>Stock: <%= data[i].stock %></h4>
+             </div>
+           </div>
+        <% } %>
+      </div>
+    </div>
+  </section>
+
+<% include ../footer.ejs %>

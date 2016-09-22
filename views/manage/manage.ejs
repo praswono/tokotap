@@ -1,0 +1,29 @@
+<% include ../header.ejs %>
+
+    <!-- Products -->
+    <section id="manage">
+      <div class="container">
+        <div class="row">
+          <h1>Manage Sepatu Yang Kemahalan</h1>
+
+          <% for (var i = 0; i < data.length; i++) { %>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+              <div class="image">
+                <img src="images/products/<%= data[i].image_url %>">
+              </div>
+              <div class="description">
+                <h3><%= data[i].brand %> <%= data[i].name %></h3>
+                <h4>Rp <%= data[i].price %></h4>
+                <h4>Stock: <%= data[i].stock %></h4>
+              </div>
+              <a href="/manage/<%= data[i].id %>"><button type="button" class="btn btn-success">Update</button></a>
+              <form method="post" action="/delete/<%= data[i].id %>" style="display:inline">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </section>
+
+<% include ../footer.ejs %>
