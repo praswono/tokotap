@@ -1,15 +1,16 @@
 "use strict"
 
 class Item {
-  // static create(db, obj) {
-  //   db.run("INSERT INTO students (firstname, lastname, cohort_id) VALUES ($firstname, $lastname, $cohort_id)", {
-  //     $firstname: obj.firstname,
-  //     $lastname: obj.lastname,
-  //     $cohort_id: obj.cohort_id
-  //   }, function(err, data) {
-  //     console.log("Success create new student entry.")
-  //   })
-  // }
+  static create(db, obj) {
+    db.run("INSERT INTO items (category, brand, name, price) VALUES ($category, $brand, $name, $price)", {
+      $firstname: obj.category,
+      $lastname: obj.brand,
+      $cohort_id: obj.name,
+      $price: obj.price
+    }, function(err, data) {
+      console.log("New Item Added")
+    })
+  }
 
   static read(db, callback) {
     db.all("SELECT * FROM items", function(err, data) {
