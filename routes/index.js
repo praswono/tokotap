@@ -27,4 +27,40 @@ router.post('/', function(req, res, next) {
   })
 })
 
+router.get('/details', function(req, res, next) {
+  Item.read(db, function(data) {
+    res.render('details', {
+      title: 'Tokotap',
+      data: data
+    })
+  })
+})
+
+router.get('/purchase', function(req, res, next) {
+  Item.read(db, function(data) {
+    res.render('purchase', {
+      title: 'Tokotap',
+      data: data
+    })
+  })
+})
+
+router.get('/confirm', function(req, res, next) {
+  Item.read(db, function(data) {
+    res.render('confirm', {
+      title: 'Tokotap',
+      data: data
+    })
+  })
+})
+
+router.get('/thanks', function(req, res, next) {
+  Item.read(db, function(data) {
+    res.render('thanks', {
+      title: 'Tokotap',
+      data: data
+    })
+  })
+})
+
 module.exports = router;

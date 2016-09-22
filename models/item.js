@@ -30,13 +30,14 @@ class Item {
   //   })
   // }
   //
-  // static deleteById(db, student_id) {
-  //   db.run("DELETE FROM students WHERE student_id = $student_id;", {
-  //     $student_id: student_id
-  //   }, function(err, data) {
-  //     console.log("Success delete student entry.")
-  //   })
-  // }
+  static deleteById(db, id, callback) {
+    db.run("DELETE FROM items WHERE id = $id;", {
+      $id: id
+    }, function(err, data) {
+      console.log("Success delete student entry.")
+      callback(data)
+    })
+  }
 }
 
 // export default Item
