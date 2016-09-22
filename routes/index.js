@@ -30,7 +30,7 @@ router.post('/', function(req, res, next) {
 router.get('/details', function(req, res, next) {
   Item.read(db, function(data) {
     res.render('details', {
-      title: 'Tokotap',
+      title: `${data[i].name} Details`,
       data: data
     })
   })
@@ -39,7 +39,7 @@ router.get('/details', function(req, res, next) {
 router.get('/purchase', function(req, res, next) {
   Item.read(db, function(data) {
     res.render('purchase', {
-      title: 'Tokotap',
+      title: `You are goint to purchase ${data[i].name}`,
       data: data
     })
   })
@@ -48,7 +48,7 @@ router.get('/purchase', function(req, res, next) {
 router.get('/confirm', function(req, res, next) {
   Item.read(db, function(data) {
     res.render('confirm', {
-      title: 'Tokotap',
+      title: `Please confirm your payments`,
       data: data
     })
   })
@@ -57,7 +57,7 @@ router.get('/confirm', function(req, res, next) {
 router.get('/thanks', function(req, res, next) {
   Item.read(db, function(data) {
     res.render('thanks', {
-      title: 'Tokotap',
+      title: `Thank you for your purchase`,
       data: data
     })
   })
