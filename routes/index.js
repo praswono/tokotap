@@ -7,12 +7,23 @@ let db = DBModel.connect(sqlite, "db/tokotap.db")
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-
   Item.read(db, function(data) {
     res.render('index', {
-      title: 'Express',
+      title: 'Tokotap',
       data: data
     })
+  })
+})
+
+
+router.post('/', function(req, res, next) {
+  Item.create(db, {
+    category: req.body.category,
+    brand: req.body.brand,
+    name: req.body.name,
+    price: req.body.price
+  }, function(){
+    res.redirect('/')
   })
 })
 

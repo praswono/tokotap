@@ -1,14 +1,15 @@
 "use strict"
 
 class Item {
-  static create(db, obj) {
+  static create(db, obj, callback) {
     db.run("INSERT INTO items (category, brand, name, price) VALUES ($category, $brand, $name, $price)", {
-      $firstname: obj.category,
-      $lastname: obj.brand,
-      $cohort_id: obj.name,
+      $category: obj.category,
+      $brand: obj.brand,
+      $name: obj.name,
       $price: obj.price
     }, function(err, data) {
       console.log("New Item Added")
+      callback()
     })
   }
 

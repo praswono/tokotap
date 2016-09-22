@@ -7,6 +7,20 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-    <p><%= data[0].name %></p>
+<ul>
+<% for(var i=0; i<data.length; i++) {%>
+	<li><h1><%= data[i].name %></h1></li>
+  <li> Category : <%= data[i].category %> </li>
+  <li> Brand    : <%= data[i].brand %></li>
+  <li> Price    : <%= data[i].price %></li>
+<% } %>
+</ul>
+    <form action="/" method="POST">
+  Category: <br><input type="text" name="category"><br><br>
+  Brand: <br><input type="text" name="brand"><br><br>
+  Name: <br><input type="text" name="name"><br><br>
+  Price: <br><input type="text" name="price"><br><br>
+  <br> <input type="submit" value="Submit">
+</form>
   </body>
 </html>
